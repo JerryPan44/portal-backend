@@ -1,6 +1,6 @@
 package eu.hbp.mip.model;
 
-import ch.chuv.lren.mip.portal.WokenConversions;
+// TODO import ch.chuv.lren.mip.portal.WokenConversions;
 import com.google.gson.*;
 import com.google.gson.annotations.Expose;
 import com.google.gson.reflect.TypeToken;
@@ -115,19 +115,20 @@ public class Experiment {
         scala.collection.immutable.List<AlgorithmSpec> algorithmsSeq = JavaConversions.asScalaBuffer(algorithms).toList();
         scala.collection.immutable.List<ValidationSpec> validationsSeq = JavaConversions.asScalaBuffer(validations).toList();
 
-        WokenConversions conv = new WokenConversions();
-        scala.collection.immutable.SortedSet<DatasetId> trainingDatasets = conv.toDatasets(model.getQuery().getTrainingDatasets());
-        scala.collection.immutable.SortedSet<DatasetId> testingDatasets = conv.toDatasets(model.getQuery().getTestingDatasets());
-        scala.collection.immutable.SortedSet<DatasetId> validationDatasets = conv.toDatasets(model.getQuery().getValidationDatasets());
+        // TODO WokenConversions conv = new WokenConversions();
+        // TODO scala.collection.immutable.SortedSet<DatasetId> trainingDatasets = conv.toDatasets(model.getQuery().getTrainingDatasets());
+        // TODO scala.collection.immutable.SortedSet<DatasetId> testingDatasets = conv.toDatasets(model.getQuery().getTestingDatasets());
+        // TODO scala.collection.immutable.SortedSet<DatasetId> validationDatasets = conv.toDatasets(model.getQuery().getValidationDatasets());
 
         String filtersJson = model.getQuery().getFilters();
-        Option<FilterRule> filters = conv.toFilterRule(filtersJson);
+        // TODO Option<FilterRule> filters = conv.toFilterRule(filtersJson);
         UserId userId = new UserId(user);
 
         // TODO: covariablesMustExist argument should be set from a user intention? Or maybe automatically selected based on the list of algorithms???
-        return new ExperimentQuery(userId, variablesSeq, covariablesSeq, false, groupingSeq, filters, Option.empty(),
-                trainingDatasets, testingDatasets, algorithmsSeq, validationDatasets,
-                validationsSeq, Option.empty());
+        // TODO return new ExperimentQuery(userId, variablesSeq, covariablesSeq, false, groupingSeq, filters, Option.empty(),
+        // TODO trainingDatasets, testingDatasets, algorithmsSeq, validationDatasets,
+        // TODO validationsSeq, Option.empty());
+        return null;
     }
 
     public JsonObject jsonify() {

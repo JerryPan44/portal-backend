@@ -4,7 +4,7 @@
 
 package eu.hbp.mip.controllers;
 
-import ch.chuv.lren.mip.portal.WokenConversions;
+// TODO import ch.chuv.lren.mip.portal.WokenConversions;
 import ch.chuv.lren.woken.messages.query.filters.FilterRule;
 import com.github.slugify.Slugify;
 import com.google.gson.Gson;
@@ -293,15 +293,15 @@ public class ModelsApi {
         allVars.addAll(model.getDataset().getHeader());
         allVars.addAll(model.getDataset().getGrouping());
 
-        WokenConversions conv = new WokenConversions();
+        // TODO WokenConversions conv = new WokenConversions();
         String filtersJson = model.getQuery().getFilters();
-        Option<FilterRule> filters = conv.toFilterRule(filtersJson);
-        String filtersSQL = conv.toSqlWhere(filters);
+        // TODO Option<FilterRule> filters = conv.toFilterRule(filtersJson);
+        // TODO String filtersSQL = conv.toSqlWhere(filters);
 
         Gson gson = new Gson();
         JsonObject jsonModel = gson.fromJson(gson.toJson(model, Model.class), JsonObject.class);
-        jsonModel.get("dataset").getAsJsonObject()
-                .add("data", dataUtil.getDataFromVariables(allVars, filtersSQL));
+        // TODO jsonModel.get("dataset").getAsJsonObject()
+        // TODO         .add("data", dataUtil.getDataFromVariables(allVars, filtersSQL));
 
         return gson.fromJson(jsonModel, Model.class);
     }

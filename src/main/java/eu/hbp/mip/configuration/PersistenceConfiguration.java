@@ -62,6 +62,7 @@ public class PersistenceConfiguration {
         return new JdbcTemplate(featuresDataSource());
     }
 
+
     @Bean(name = "entityManagerFactory")
     @DependsOn("flyway")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -79,6 +80,7 @@ public class PersistenceConfiguration {
         flyway.setDataSource(portalDataSource());
         return flyway;
     }
+
 
     @Bean(name = "dataUtil")
     @Scope("singleton")

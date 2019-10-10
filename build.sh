@@ -31,11 +31,12 @@ VCS_REF=$(git describe --tags --dirty)
 VERSION=$(git describe --tags --dirty)
 
 docker build --build-arg BUILD_DATE=$(date -Iseconds) \
-    --build-arg VCS_REF=$VCS_REF \
-    --build-arg VERSION=$VERSION \
-    --tag "$IMAGE:latest" \
-    --tag "$IMAGE:$VERSION" \
-    .
+--build-arg VCS_REF=$VCS_REF \
+--build-arg VERSION=$VERSION \
+--tag "$IMAGE:latest" \
+--tag "jerrypan44/portal-backend:latest" \
+.
+docker push jerrypan44/portal-backend:latest
 
 BUGSNAG_KEY=""
 eval $(grep -e "^\\s*BUGSNAG_KEY" Dockerfile | tr '\\' ' ')
